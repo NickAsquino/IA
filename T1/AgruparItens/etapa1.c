@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 #define M 50
-#define NFORMIGAS 15
+#define NFORMIGAS 50
 #define RAIO 1
-#define NITENS 1000
+#define NITENS 600
 
 int ambiente[M][M];
 
