@@ -1,0 +1,156 @@
+
+==================================================
+Arquivo: uf20-01.cnf
+Problema carregado: 20 variáveis e 91 cláusulas.
+Iniciando as 10 execuções...
+
+--- Execução 1 ---
+Cláusulas satisfeitas inicialmente: 83 de 91
+Melhor quantidade de cláusulas satisfeitas: 91 de 91
+
+--- Execução 2 ---
+Cláusulas satisfeitas inicialmente: 79 de 91
+Melhor quantidade de cláusulas satisfeitas: 91 de 91
+
+--- Execução 3 ---
+Cláusulas satisfeitas inicialmente: 83 de 91
+Melhor quantidade de cláusulas satisfeitas: 91 de 91
+
+--- Execução 4 ---
+Cláusulas satisfeitas inicialmente: 81 de 91
+Melhor quantidade de cláusulas satisfeitas: 91 de 91
+
+--- Execução 5 ---
+Cláusulas satisfeitas inicialmente: 72 de 91
+Melhor quantidade de cláusulas satisfeitas: 91 de 91
+
+--- Execução 6 ---
+Cláusulas satisfeitas inicialmente: 73 de 91
+Melhor quantidade de cláusulas satisfeitas: 91 de 91
+
+--- Execução 7 ---
+Cláusulas satisfeitas inicialmente: 81 de 91
+Melhor quantidade de cláusulas satisfeitas: 91 de 91
+
+--- Execução 8 ---
+Cláusulas satisfeitas inicialmente: 82 de 91
+Melhor quantidade de cláusulas satisfeitas: 91 de 91
+
+--- Execução 9 ---
+Cláusulas satisfeitas inicialmente: 78 de 91
+Melhor quantidade de cláusulas satisfeitas: 91 de 91
+
+--- Execução 10 ---
+Cláusulas satisfeitas inicialmente: 75 de 91
+Melhor quantidade de cláusulas satisfeitas: 91 de 91
+
+
+--- ESTATÍSTICAS FINAIS (uf20-01) ---
+Resultados das 10 execuções: [91, 91, 91, 91, 91, 91, 91, 91, 91, 91]
+Média Satisfeitas: 91.00
+Desvio Padrão: 0.00
+--------------------------------------------------
+
+==================================================
+Arquivo: uf100-01.cnf
+Problema carregado: 100 variáveis e 430 cláusulas.
+Iniciando as 10 execuções...
+
+--- Execução 1 ---
+Cláusulas satisfeitas inicialmente: 376 de 430
+Melhor quantidade de cláusulas satisfeitas: 422 de 430
+
+--- Execução 2 ---
+Cláusulas satisfeitas inicialmente: 368 de 430
+Melhor quantidade de cláusulas satisfeitas: 422 de 430
+
+--- Execução 3 ---
+Cláusulas satisfeitas inicialmente: 372 de 430
+Melhor quantidade de cláusulas satisfeitas: 420 de 430
+
+--- Execução 4 ---
+Cláusulas satisfeitas inicialmente: 375 de 430
+Melhor quantidade de cláusulas satisfeitas: 422 de 430
+
+--- Execução 5 ---
+Cláusulas satisfeitas inicialmente: 375 de 430
+Melhor quantidade de cláusulas satisfeitas: 422 de 430
+
+--- Execução 6 ---
+Cláusulas satisfeitas inicialmente: 375 de 430
+Melhor quantidade de cláusulas satisfeitas: 423 de 430
+
+--- Execução 7 ---
+Cláusulas satisfeitas inicialmente: 375 de 430
+Melhor quantidade de cláusulas satisfeitas: 422 de 430
+
+--- Execução 8 ---
+Cláusulas satisfeitas inicialmente: 382 de 430
+Melhor quantidade de cláusulas satisfeitas: 423 de 430
+
+--- Execução 9 ---
+Cláusulas satisfeitas inicialmente: 382 de 430
+Melhor quantidade de cláusulas satisfeitas: 421 de 430
+
+--- Execução 10 ---
+Cláusulas satisfeitas inicialmente: 380 de 430
+Melhor quantidade de cláusulas satisfeitas: 421 de 430
+
+
+--- ESTATÍSTICAS FINAIS (uf100-01) ---
+Resultados das 10 execuções: [422, 422, 420, 422, 422, 423, 422, 423, 421, 421]
+Média Satisfeitas: 421.80
+Desvio Padrão: 0.92
+--------------------------------------------------
+
+==================================================
+Arquivo: uf250-01.cnf
+Problema carregado: 250 variáveis e 1065 cláusulas.
+Iniciando as 10 execuções...
+
+--- Execução 1 ---
+Cláusulas satisfeitas inicialmente: 931 de 1065
+Melhor quantidade de cláusulas satisfeitas: 1023 de 1065
+
+--- Execução 2 ---
+Cláusulas satisfeitas inicialmente: 934 de 1065
+Melhor quantidade de cláusulas satisfeitas: 1027 de 1065
+
+--- Execução 3 ---
+Cláusulas satisfeitas inicialmente: 935 de 1065
+Melhor quantidade de cláusulas satisfeitas: 1026 de 1065
+
+--- Execução 4 ---
+Cláusulas satisfeitas inicialmente: 947 de 1065
+Melhor quantidade de cláusulas satisfeitas: 1023 de 1065
+
+--- Execução 5 ---
+Cláusulas satisfeitas inicialmente: 916 de 1065
+Melhor quantidade de cláusulas satisfeitas: 1025 de 1065
+
+--- Execução 6 ---
+Cláusulas satisfeitas inicialmente: 930 de 1065
+Melhor quantidade de cláusulas satisfeitas: 1022 de 1065
+
+--- Execução 7 ---
+Cláusulas satisfeitas inicialmente: 936 de 1065
+Melhor quantidade de cláusulas satisfeitas: 1018 de 1065
+
+--- Execução 8 ---
+Cláusulas satisfeitas inicialmente: 927 de 1065
+Melhor quantidade de cláusulas satisfeitas: 1024 de 1065
+
+--- Execução 9 ---
+Cláusulas satisfeitas inicialmente: 924 de 1065
+Melhor quantidade de cláusulas satisfeitas: 1022 de 1065
+
+--- Execução 10 ---
+Cláusulas satisfeitas inicialmente: 916 de 1065
+Melhor quantidade de cláusulas satisfeitas: 1027 de 1065
+
+
+--- ESTATÍSTICAS FINAIS (uf250-01) ---
+Resultados das 10 execuções: [1023, 1027, 1026, 1023, 1025, 1022, 1018, 1024, 1022, 1027]
+Média Satisfeitas: 1023.70
+Desvio Padrão: 2.75
+--------------------------------------------------
