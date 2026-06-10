@@ -1,138 +1,363 @@
 
 ==================================================
 Arquivo: teste1/uf20-01.cnf
-Problema carregado: 20 variáveis e 91 cláusulas.
-Iniciando as 10 execuções...
+Problema: 20 variáveis, 91 cláusulas
 
---- Execução 1 ---
-Cláusulas satisfeitas inicialmente: 81 de 91
-Melhor quantidade de cláusulas satisfeitas: 89 de 91
 
---- Execução 2 ---
-Cláusulas satisfeitas inicialmente: 80 de 91
-Melhor quantidade de cláusulas satisfeitas: 91 de 91
+--- Configuração: Rotina=geometrica | SAmax=1 ---
+Iniciando 10 execuções...
 
---- Execução 3 ---
-Cláusulas satisfeitas inicialmente: 83 de 91
-Melhor quantidade de cláusulas satisfeitas: 91 de 91
+  Execução 1 | inicial: 81 de 91
+  Melhor: 90 de 91
+  Execução 2 | inicial: 82 de 91
+  Melhor: 90 de 91
+  Execução 3 | inicial: 80 de 91
+  Melhor: 89 de 91
+  Execução 4 | inicial: 82 de 91
+  Melhor: 90 de 91
+  Execução 5 | inicial: 81 de 91
+  Melhor: 91 de 91
+  Execução 6 | inicial: 81 de 91
+  Melhor: 91 de 91
+  Execução 7 | inicial: 86 de 91
+  Melhor: 91 de 91
+  Execução 8 | inicial: 78 de 91
+  Melhor: 91 de 91
+  Execução 9 | inicial: 78 de 91
+  Melhor: 90 de 91
+  Execução 10 | inicial: 80 de 91
+  Melhor: 90 de 91
 
---- Execução 4 ---
-Cláusulas satisfeitas inicialmente: 79 de 91
-Melhor quantidade de cláusulas satisfeitas: 91 de 91
+  >> Resultados: [90, 90, 89, 90, 91, 91, 91, 91, 90, 90]
+  >> Média: 90.30 | Desvio Padrão: 0.67
+  >> Melhor: 91 | Pior: 89
 
---- Execução 5 ---
-Cláusulas satisfeitas inicialmente: 80 de 91
-Melhor quantidade de cláusulas satisfeitas: 91 de 91
 
---- Execução 6 ---
-Cláusulas satisfeitas inicialmente: 83 de 91
-Melhor quantidade de cláusulas satisfeitas: 91 de 91
+--- Configuração: Rotina=schedule1 | SAmax=1 ---
+Iniciando 10 execuções...
 
---- Execução 7 ---
-Cláusulas satisfeitas inicialmente: 74 de 91
-Melhor quantidade de cláusulas satisfeitas: 91 de 91
+  Execução 1 | inicial: 77 de 91
+  Melhor: 91 de 91
+  Execução 2 | inicial: 83 de 91
+  Melhor: 91 de 91
+  Execução 3 | inicial: 78 de 91
+  Melhor: 91 de 91
+  Execução 4 | inicial: 75 de 91
+  Melhor: 91 de 91
+  Execução 5 | inicial: 83 de 91
+  Melhor: 91 de 91
+  Execução 6 | inicial: 84 de 91
+  Melhor: 91 de 91
+  Execução 7 | inicial: 76 de 91
+  Melhor: 91 de 91
+  Execução 8 | inicial: 78 de 91
+  Melhor: 91 de 91
+  Execução 9 | inicial: 76 de 91
+  Melhor: 91 de 91
+  Execução 10 | inicial: 79 de 91
+  Melhor: 91 de 91
 
---- Execução 8 ---
-Cláusulas satisfeitas inicialmente: 82 de 91
-Melhor quantidade de cláusulas satisfeitas: 91 de 91
+  >> Resultados: [91, 91, 91, 91, 91, 91, 91, 91, 91, 91]
+  >> Média: 91.00 | Desvio Padrão: 0.00
+  >> Melhor: 91 | Pior: 91
 
---- Execução 9 ---
-Cláusulas satisfeitas inicialmente: 79 de 91
-Melhor quantidade de cláusulas satisfeitas: 91 de 91
 
---- Execução 10 ---
-Cláusulas satisfeitas inicialmente: 76 de 91
-Melhor quantidade de cláusulas satisfeitas: 91 de 91
+--- Configuração: Rotina=geometrica | SAmax=10 ---
+Iniciando 10 execuções...
+
+  Execução 1 | inicial: 82 de 91
+  Melhor: 91 de 91
+  Execução 2 | inicial: 80 de 91
+  Melhor: 91 de 91
+  Execução 3 | inicial: 76 de 91
+  Melhor: 89 de 91
+  Execução 4 | inicial: 79 de 91
+  Melhor: 91 de 91
+  Execução 5 | inicial: 79 de 91
+  Melhor: 91 de 91
+  Execução 6 | inicial: 81 de 91
+  Melhor: 91 de 91
+  Execução 7 | inicial: 85 de 91
+  Melhor: 91 de 91
+  Execução 8 | inicial: 75 de 91
+  Melhor: 91 de 91
+  Execução 9 | inicial: 76 de 91
+  Melhor: 91 de 91
+  Execução 10 | inicial: 83 de 91
+  Melhor: 90 de 91
+
+  >> Resultados: [91, 91, 89, 91, 91, 91, 91, 91, 91, 90]
+  >> Média: 90.70 | Desvio Padrão: 0.67
+  >> Melhor: 91 | Pior: 89
+
+
+--- Configuração: Rotina=schedule1 | SAmax=10 ---
+Iniciando 10 execuções...
+
+  Execução 1 | inicial: 75 de 91
+  Melhor: 91 de 91
+  Execução 2 | inicial: 83 de 91
+  Melhor: 91 de 91
+  Execução 3 | inicial: 84 de 91
+  Melhor: 91 de 91
+  Execução 4 | inicial: 82 de 91
+  Melhor: 91 de 91
+  Execução 5 | inicial: 83 de 91
+  Melhor: 91 de 91
+  Execução 6 | inicial: 76 de 91
+  Melhor: 91 de 91
+  Execução 7 | inicial: 84 de 91
+  Melhor: 91 de 91
+  Execução 8 | inicial: 83 de 91
+  Melhor: 91 de 91
+  Execução 9 | inicial: 77 de 91
+  Melhor: 91 de 91
+  Execução 10 | inicial: 82 de 91
+  Melhor: 91 de 91
+
+  >> Resultados: [91, 91, 91, 91, 91, 91, 91, 91, 91, 91]
+  >> Média: 91.00 | Desvio Padrão: 0.00
+  >> Melhor: 91 | Pior: 91
 
 
 ==================================================
 Arquivo: teste2/uf100-01.cnf
-Problema carregado: 100 variáveis e 430 cláusulas.
-Iniciando as 10 execuções...
+Problema: 100 variáveis, 430 cláusulas
 
---- Execução 1 ---
-Cláusulas satisfeitas inicialmente: 370 de 430
-Melhor quantidade de cláusulas satisfeitas: 417 de 430
 
---- Execução 2 ---
-Cláusulas satisfeitas inicialmente: 381 de 430
-Melhor quantidade de cláusulas satisfeitas: 419 de 430
+--- Configuração: Rotina=geometrica | SAmax=1 ---
+Iniciando 10 execuções...
 
---- Execução 3 ---
-Cláusulas satisfeitas inicialmente: 376 de 430
-Melhor quantidade de cláusulas satisfeitas: 422 de 430
+  Execução 1 | inicial: 360 de 430
+  Melhor: 409 de 430
+  Execução 2 | inicial: 362 de 430
+  Melhor: 413 de 430
+  Execução 3 | inicial: 372 de 430
+  Melhor: 411 de 430
+  Execução 4 | inicial: 384 de 430
+  Melhor: 407 de 430
+  Execução 5 | inicial: 377 de 430
+  Melhor: 415 de 430
+  Execução 6 | inicial: 380 de 430
+  Melhor: 411 de 430
+  Execução 7 | inicial: 375 de 430
+  Melhor: 414 de 430
+  Execução 8 | inicial: 372 de 430
+  Melhor: 412 de 430
+  Execução 9 | inicial: 382 de 430
+  Melhor: 404 de 430
+  Execução 10 | inicial: 367 de 430
+  Melhor: 407 de 430
 
---- Execução 4 ---
-Cláusulas satisfeitas inicialmente: 391 de 430
-Melhor quantidade de cláusulas satisfeitas: 416 de 430
+  >> Resultados: [409, 413, 411, 407, 415, 411, 414, 412, 404, 407]
+  >> Média: 410.30 | Desvio Padrão: 3.50
+  >> Melhor: 415 | Pior: 404
 
---- Execução 5 ---
-Cláusulas satisfeitas inicialmente: 369 de 430
-Melhor quantidade de cláusulas satisfeitas: 421 de 430
 
---- Execução 6 ---
-Cláusulas satisfeitas inicialmente: 378 de 430
-Melhor quantidade de cláusulas satisfeitas: 420 de 430
+--- Configuração: Rotina=schedule1 | SAmax=1 ---
+Iniciando 10 execuções...
 
---- Execução 7 ---
-Cláusulas satisfeitas inicialmente: 377 de 430
-Melhor quantidade de cláusulas satisfeitas: 420 de 430
+  Execução 1 | inicial: 378 de 430
+  Melhor: 425 de 430
+  Execução 2 | inicial: 382 de 430
+  Melhor: 424 de 430
+  Execução 3 | inicial: 374 de 430
+  Melhor: 422 de 430
+  Execução 4 | inicial: 386 de 430
+  Melhor: 423 de 430
+  Execução 5 | inicial: 379 de 430
+  Melhor: 426 de 430
+  Execução 6 | inicial: 381 de 430
+  Melhor: 419 de 430
+  Execução 7 | inicial: 365 de 430
+  Melhor: 424 de 430
+  Execução 8 | inicial: 371 de 430
+  Melhor: 420 de 430
+  Execução 9 | inicial: 366 de 430
+  Melhor: 422 de 430
+  Execução 10 | inicial: 385 de 430
+  Melhor: 418 de 430
 
---- Execução 8 ---
-Cláusulas satisfeitas inicialmente: 374 de 430
-Melhor quantidade de cláusulas satisfeitas: 420 de 430
+  >> Resultados: [425, 424, 422, 423, 426, 419, 424, 420, 422, 418]
+  >> Média: 422.30 | Desvio Padrão: 2.63
+  >> Melhor: 426 | Pior: 418
 
---- Execução 9 ---
-Cláusulas satisfeitas inicialmente: 384 de 430
-Melhor quantidade de cláusulas satisfeitas: 425 de 430
 
---- Execução 10 ---
-Cláusulas satisfeitas inicialmente: 376 de 430
-Melhor quantidade de cláusulas satisfeitas: 420 de 430
+--- Configuração: Rotina=geometrica | SAmax=10 ---
+Iniciando 10 execuções...
+
+  Execução 1 | inicial: 373 de 430
+  Melhor: 421 de 430
+  Execução 2 | inicial: 380 de 430
+  Melhor: 423 de 430
+  Execução 3 | inicial: 384 de 430
+  Melhor: 419 de 430
+  Execução 4 | inicial: 377 de 430
+  Melhor: 420 de 430
+  Execução 5 | inicial: 382 de 430
+  Melhor: 420 de 430
+  Execução 6 | inicial: 365 de 430
+  Melhor: 416 de 430
+  Execução 7 | inicial: 374 de 430
+  Melhor: 418 de 430
+  Execução 8 | inicial: 374 de 430
+  Melhor: 419 de 430
+  Execução 9 | inicial: 373 de 430
+  Melhor: 419 de 430
+  Execução 10 | inicial: 367 de 430
+  Melhor: 419 de 430
+
+  >> Resultados: [421, 423, 419, 420, 420, 416, 418, 419, 419, 419]
+  >> Média: 419.40 | Desvio Padrão: 1.84
+  >> Melhor: 423 | Pior: 416
+
+
+--- Configuração: Rotina=schedule1 | SAmax=10 ---
+Iniciando 10 execuções...
+
+  Execução 1 | inicial: 369 de 430
+  Melhor: 423 de 430
+  Execução 2 | inicial: 380 de 430
+  Melhor: 422 de 430
+  Execução 3 | inicial: 383 de 430
+  Melhor: 422 de 430
+  Execução 4 | inicial: 380 de 430
+  Melhor: 421 de 430
+  Execução 5 | inicial: 370 de 430
+  Melhor: 425 de 430
+  Execução 6 | inicial: 376 de 430
+  Melhor: 424 de 430
+  Execução 7 | inicial: 368 de 430
+  Melhor: 421 de 430
+  Execução 8 | inicial: 371 de 430
+  Melhor: 423 de 430
+  Execução 9 | inicial: 378 de 430
+  Melhor: 425 de 430
+  Execução 10 | inicial: 366 de 430
+  Melhor: 421 de 430
+
+  >> Resultados: [423, 422, 422, 421, 425, 424, 421, 423, 425, 421]
+  >> Média: 422.70 | Desvio Padrão: 1.57
+  >> Melhor: 425 | Pior: 421
 
 
 ==================================================
 Arquivo: teste3/uf250-01.cnf
-Problema carregado: 250 variáveis e 1065 cláusulas.
-Iniciando as 10 execuções...
+Problema: 250 variáveis, 1065 cláusulas
 
---- Execução 1 ---
-Cláusulas satisfeitas inicialmente: 941 de 1065
-Melhor quantidade de cláusulas satisfeitas: 1018 de 1065
 
---- Execução 2 ---
-Cláusulas satisfeitas inicialmente: 944 de 1065
-Melhor quantidade de cláusulas satisfeitas: 1015 de 1065
+--- Configuração: Rotina=geometrica | SAmax=1 ---
+Iniciando 10 execuções...
 
---- Execução 3 ---
-Cláusulas satisfeitas inicialmente: 936 de 1065
-Melhor quantidade de cláusulas satisfeitas: 1018 de 1065
+  Execução 1 | inicial: 949 de 1065
+  Melhor: 993 de 1065
+  Execução 2 | inicial: 921 de 1065
+  Melhor: 986 de 1065
+  Execução 3 | inicial: 942 de 1065
+  Melhor: 993 de 1065
+  Execução 4 | inicial: 911 de 1065
+  Melhor: 992 de 1065
+  Execução 5 | inicial: 929 de 1065
+  Melhor: 996 de 1065
+  Execução 6 | inicial: 938 de 1065
+  Melhor: 993 de 1065
+  Execução 7 | inicial: 945 de 1065
+  Melhor: 991 de 1065
+  Execução 8 | inicial: 947 de 1065
+  Melhor: 997 de 1065
+  Execução 9 | inicial: 926 de 1065
+  Melhor: 992 de 1065
+  Execução 10 | inicial: 934 de 1065
+  Melhor: 994 de 1065
 
---- Execução 4 ---
-Cláusulas satisfeitas inicialmente: 961 de 1065
-Melhor quantidade de cláusulas satisfeitas: 1019 de 1065
+  >> Resultados: [993, 986, 993, 992, 996, 993, 991, 997, 992, 994]
+  >> Média: 992.70 | Desvio Padrão: 2.98
+  >> Melhor: 997 | Pior: 986
 
---- Execução 5 ---
-Cláusulas satisfeitas inicialmente: 944 de 1065
-Melhor quantidade de cláusulas satisfeitas: 1008 de 1065
 
---- Execução 6 ---
-Cláusulas satisfeitas inicialmente: 921 de 1065
-Melhor quantidade de cláusulas satisfeitas: 1011 de 1065
+--- Configuração: Rotina=schedule1 | SAmax=1 ---
+Iniciando 10 execuções...
 
---- Execução 7 ---
-Cláusulas satisfeitas inicialmente: 933 de 1065
-Melhor quantidade de cláusulas satisfeitas: 1006 de 1065
+  Execução 1 | inicial: 938 de 1065
+  Melhor: 1030 de 1065
+  Execução 2 | inicial: 946 de 1065
+  Melhor: 1027 de 1065
+  Execução 3 | inicial: 925 de 1065
+  Melhor: 1023 de 1065
+  Execução 4 | inicial: 931 de 1065
+  Melhor: 1025 de 1065
+  Execução 5 | inicial: 945 de 1065
+  Melhor: 1026 de 1065
+  Execução 6 | inicial: 924 de 1065
+  Melhor: 1024 de 1065
+  Execução 7 | inicial: 931 de 1065
+  Melhor: 1023 de 1065
+  Execução 8 | inicial: 932 de 1065
+  Melhor: 1022 de 1065
+  Execução 9 | inicial: 937 de 1065
+  Melhor: 1024 de 1065
+  Execução 10 | inicial: 932 de 1065
+  Melhor: 1023 de 1065
 
---- Execução 8 ---
-Cláusulas satisfeitas inicialmente: 945 de 1065
-Melhor quantidade de cláusulas satisfeitas: 1015 de 1065
+  >> Resultados: [1030, 1027, 1023, 1025, 1026, 1024, 1023, 1022, 1024, 1023]
+  >> Média: 1024.70 | Desvio Padrão: 2.41
+  >> Melhor: 1030 | Pior: 1022
 
---- Execução 9 ---
-Cláusulas satisfeitas inicialmente: 946 de 1065
-Melhor quantidade de cláusulas satisfeitas: 1006 de 1065
 
---- Execução 10 ---
-Cláusulas satisfeitas inicialmente: 929 de 1065
-Melhor quantidade de cláusulas satisfeitas: 1009 de 1065
+--- Configuração: Rotina=geometrica | SAmax=10 ---
+Iniciando 10 execuções...
+
+  Execução 1 | inicial: 930 de 1065
+  Melhor: 1014 de 1065
+  Execução 2 | inicial: 948 de 1065
+  Melhor: 1010 de 1065
+  Execução 3 | inicial: 934 de 1065
+  Melhor: 1018 de 1065
+  Execução 4 | inicial: 947 de 1065
+  Melhor: 1018 de 1065
+  Execução 5 | inicial: 925 de 1065
+  Melhor: 1016 de 1065
+  Execução 6 | inicial: 933 de 1065
+  Melhor: 1018 de 1065
+  Execução 7 | inicial: 921 de 1065
+  Melhor: 1015 de 1065
+  Execução 8 | inicial: 933 de 1065
+  Melhor: 1013 de 1065
+  Execução 9 | inicial: 927 de 1065
+  Melhor: 1021 de 1065
+  Execução 10 | inicial: 955 de 1065
+  Melhor: 1019 de 1065
+
+  >> Resultados: [1014, 1010, 1018, 1018, 1016, 1018, 1015, 1013, 1021, 1019]
+  >> Média: 1016.20 | Desvio Padrão: 3.26
+  >> Melhor: 1021 | Pior: 1010
+
+
+--- Configuração: Rotina=schedule1 | SAmax=10 ---
+Iniciando 10 execuções...
+
+  Execução 1 | inicial: 944 de 1065
+  Melhor: 1027 de 1065
+  Execução 2 | inicial: 928 de 1065
+  Melhor: 1030 de 1065
+  Execução 3 | inicial: 919 de 1065
+  Melhor: 1028 de 1065
+  Execução 4 | inicial: 941 de 1065
+  Melhor: 1025 de 1065
+  Execução 5 | inicial: 948 de 1065
+  Melhor: 1023 de 1065
+  Execução 6 | inicial: 937 de 1065
+  Melhor: 1026 de 1065
+  Execução 7 | inicial: 932 de 1065
+  Melhor: 1020 de 1065
+  Execução 8 | inicial: 911 de 1065
+  Melhor: 1028 de 1065
+  Execução 9 | inicial: 941 de 1065
+  Melhor: 1026 de 1065
+  Execução 10 | inicial: 930 de 1065
+  Melhor: 1034 de 1065
+
+  >> Resultados: [1027, 1030, 1028, 1025, 1023, 1026, 1020, 1028, 1026, 1034]
+  >> Média: 1026.70 | Desvio Padrão: 3.80
+  >> Melhor: 1034 | Pior: 1020
 

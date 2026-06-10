@@ -5,19 +5,16 @@ import os
 import statistics
 
 def ler_cnf(caminho):
-    # 4 -18 19 0 -> 4 é a variável, -18 é a negação da variável 18, 19 é a variável 19, e o 0 indica o fim da cláusula. 
     clausulas = [] 
     n_vars = 0     
     with open(caminho, 'r') as f:
         for linha in f:
             linha = linha.strip() 
-            
             if (linha == '' or 
                 linha.startswith('c') or 
                 linha.startswith('%') or 
                 linha.startswith('0')):
                 continue
-
             if linha.startswith('p'):
                 partes = linha.split()
                 n_vars = int(partes[2]) 
@@ -45,18 +42,17 @@ def vizinho(s, percentual=0.05):
     n = len(s)
     qtd = max(1, int(percentual * n)) 
     indices = random.sample(range(n), qtd)
-    
     for i in indices:
         novo[i] = 1 - novo[i]
     return novo
 
 # Ti = T0 * (Tn/T0)^(i/N)
-def temperatura_imagem(T0, Tn, i, N):
+def temperatura_schedule1(T0, Tn, i, N):
     if i >= N:
         return Tn
     return T0 * ((Tn / T0) ** (i / N))
 
-def simulated_annealing(vetor_solucao, clausulas, T0, Tn, max_iter, SAmax):
+def simulated_annealing(vetor_solucao, clausulas, T0, Tn, alpha, max_iter, SAmax, rotina):
     T = T0
     solucao_atual = vetor_solucao[:]
     fitness_atual = funcao_objetivo(solucao_atual, clausulas)
@@ -81,7 +77,6 @@ def simulated_annealing(vetor_solucao, clausulas, T0, Tn, max_iter, SAmax):
             if delta > 0:
                 solucao_atual = nova_solucao
                 fitness_atual = nova_fitness
-                
                 if fitness_atual > melhor_fitness:
                     melhor_solucao = solucao_atual[:]
                     melhor_fitness = fitness_atual
@@ -93,25 +88,33 @@ def simulated_annealing(vetor_solucao, clausulas, T0, Tn, max_iter, SAmax):
             
             historico_fitness.append(fitness_atual)
             historico_temperatura.append(T)
-            
-        T = temperatura_imagem(T0, Tn, avaliacoes, max_iter)
+
+        # Atualiza temperatura conforme a rotina escolhida
+        if rotina == "geometrica":
+            T = T * alpha
+        else:  # schedule1
+            T = temperatura_schedule1(T0, Tn, avaliacoes, max_iter)
         
     return melhor_solucao, melhor_fitness, historico_fitness, historico_temperatura
 
+
 if __name__ == "__main__":
     arquivos = [
-        "uf20-01.cnf",
-        "uf100-01.cnf",
-        "uf250-01.cnf"
+        "teste1/uf20-01.cnf",
+        "teste2/uf100-01.cnf",
+        "teste3/uf250-01.cnf"
     ]
     arquivo_log = "resultados.txt"
     numero_execucoes = 10
 
-    # Parâmetros
     TEMPERATURA_INICIAL = 50.0
-    TEMPERATURA_FINAL = 0.0001 # Representa o Tn na fórmula
+    TEMPERATURA_FINAL = 0.0001
+    ALPHA = 0.95
     MAX_ITERACOES = 10000
-    SAMAX = 10
+
+    # ← Os dois valores de SAmax e as duas rotinas
+    samax_valores = [1, 10]
+    rotinas = ["geometrica", "schedule1"]
 
     with open(arquivo_log, 'w', encoding='utf-8') as f_log:
 
@@ -122,89 +125,110 @@ if __name__ == "__main__":
                 print(f"Arquivo {caminho} não encontrado, pulando...")
                 continue
 
-            msg_inicio = f"\n{'='*50}\nArquivo: {caminho}\nProblema carregado: {n_vars} variáveis e {len(clausulas)} cláusulas.\nIniciando as {numero_execucoes} execuções...\n"
-            print(msg_inicio)
-            f_log.write(msg_inicio + "\n")
+            pasta = os.path.dirname(caminho)
+            if pasta == "":
+                pasta = "."
+            nome_arquivo = os.path.basename(caminho).replace(".cnf", "")
 
-            # Lista para guardar o melhor fitness de cada execução (usada p/ Estatísticas e BoxPlot)
-            resultados_da_instancia = []
+            msg_arquivo = f"\n{'='*50}\nArquivo: {caminho}\nProblema: {n_vars} variáveis, {len(clausulas)} cláusulas\n"
+            print(msg_arquivo)
+            f_log.write(msg_arquivo + "\n")
 
-            for execucao in range(1, numero_execucoes + 1):
-                vetor_solucao_inicial = [random.randint(0, 1) for _ in range(n_vars)]
-                fitness_inicial = funcao_objetivo(vetor_solucao_inicial, clausulas)
+            # Guarda resultados de todas as configurações para o box-plot combinado
+            resultados_por_config = {}
+            labels_boxplot = []
 
-                msg_exec = f"--- Execução {execucao} ---"
-                msg_fit_ini = f"Cláusulas satisfeitas inicialmente: {fitness_inicial} de {len(clausulas)}"
+            for samax in samax_valores:
+                for rotina in rotinas:
 
-                print(msg_exec)
-                print(msg_fit_ini)
-                f_log.write(f"{msg_exec}\n{msg_fit_ini}\n")
+                    nome_config = f"{rotina}_samax{samax}"
+                    label = f"{'Geom.' if rotina == 'geometrica' else 'Sched1'}\nSAmax={samax}"
+                    labels_boxplot.append(label)
+                    resultados_por_config[nome_config] = []
 
-                melhor_sol, melhor_fit, historico, hist_temp = simulated_annealing(
-                    vetor_solucao_inicial, clausulas, TEMPERATURA_INICIAL, TEMPERATURA_FINAL, MAX_ITERACOES, SAMAX
-                )
+                    msg_config = (
+                        f"\n--- Configuração: Rotina={rotina} | SAmax={samax} ---\n"
+                        f"Iniciando {numero_execucoes} execuções...\n"
+                    )
+                    print(msg_config)
+                    f_log.write(msg_config + "\n")
 
-                # Salva o melhor resultado para o BoxPlot e cálculo de média
-                resultados_da_instancia.append(melhor_fit)
+                    melhor_historico = None
+                    melhor_fitness_geral = -1
 
-                msg_fit_fim = f"Melhor quantidade de cláusulas satisfeitas: {melhor_fit} de {len(clausulas)}\n"
-                print(msg_fit_fim)
-                f_log.write(f"{msg_fit_fim}\n")
+                    for execucao in range(1, numero_execucoes + 1):
+                        vetor_solucao_inicial = [random.randint(0, 1) for _ in range(n_vars)]
+                        fitness_inicial = funcao_objetivo(vetor_solucao_inicial, clausulas)
 
-                # Gráfico de Convergência Individual
-                fig, ax1 = plt.subplots(figsize=(8, 6))
+                        msg_exec = f"  Execução {execucao} | inicial: {fitness_inicial} de {len(clausulas)}"
+                        print(msg_exec)
+                        f_log.write(msg_exec + "\n")
 
-                cor_azul = 'blue'
-                ax1.set_xlabel("Iteração")
-                ax1.set_ylabel("Cláusulas Satisfeitas", color=cor_azul)
-                ax1.plot(historico, color=cor_azul, linewidth=0.5)
-                ax1.tick_params(axis='y', labelcolor=cor_azul)
+                        melhor_sol, melhor_fit, historico, hist_temp = simulated_annealing(
+                            vetor_solucao_inicial, clausulas,
+                            TEMPERATURA_INICIAL, TEMPERATURA_FINAL,
+                            ALPHA, MAX_ITERACOES, samax, rotina
+                        )
 
-                ax2 = ax1.twinx()
-                cor_vermelha = 'red'
-                ax2.set_ylabel("Temperatura", color=cor_vermelha)
-                ax2.plot(hist_temp, color=cor_vermelha, linestyle='--', linewidth=1.5)
-                ax2.tick_params(axis='y', labelcolor=cor_vermelha)
+                        resultados_por_config[nome_config].append(melhor_fit)
 
-                pasta = os.path.dirname(caminho)
-                # Garante que salva na raiz se a pasta estiver vazia
-                if pasta == "": pasta = "." 
-                
-                nome_arquivo = os.path.basename(caminho).replace(".cnf", "")
+                        # Guarda histórico da melhor execução para o gráfico de convergência
+                        if melhor_fit > melhor_fitness_geral:
+                            melhor_fitness_geral = melhor_fit
+                            melhor_historico = (historico, hist_temp, execucao)
 
-                plt.title(f"Execução {execucao} - {nome_arquivo} - {n_vars} vars, {len(clausulas)} cláusulas")
-                fig.tight_layout()
+                        msg_fit = f"  Melhor: {melhor_fit} de {len(clausulas)}"
+                        print(msg_fit)
+                        f_log.write(msg_fit + "\n")
 
-                nome_grafico = os.path.join(pasta, f"grafico_{nome_arquivo}_exec{execucao}.png")
-                plt.savefig(nome_grafico)
-                plt.close(fig)
-            
-            # Cálculos automáticos usando a biblioteca 'statistics'
-            media = statistics.mean(resultados_da_instancia)
-            desvio_padrao = statistics.stdev(resultados_da_instancia)
+                    # Estatísticas da configuração
+                    resultados = resultados_por_config[nome_config]
+                    media = statistics.mean(resultados)
+                    desvio = statistics.stdev(resultados)
 
-            msg_estatisticas = (
-                f"\n--- ESTATÍSTICAS FINAIS ({nome_arquivo}) ---\n"
-                f"Resultados das 10 execuções: {resultados_da_instancia}\n"
-                f"Média Satisfeitas: {media:.2f}\n"
-                f"Desvio Padrão: {desvio_padrao:.2f}\n"
-                f"{'-'*50}\n"
-            )
-            print(msg_estatisticas)
-            f_log.write(msg_estatisticas)
+                    msg_stats = (
+                        f"\n  >> Resultados: {resultados}\n"
+                        f"  >> Média: {media:.2f} | Desvio Padrão: {desvio:.2f}\n"
+                        f"  >> Melhor: {max(resultados)} | Pior: {min(resultados)}\n"
+                    )
+                    print(msg_stats)
+                    f_log.write(msg_stats + "\n")
 
-            # Gerando o BoxPlot para a instância atual
-            fig_box, ax_box = plt.subplots(figsize=(6, 5))
-            ax_box.boxplot(resultados_da_instancia, patch_artist=True, boxprops=dict(facecolor="lightblue"))
-            ax_box.set_title(f"Box-Plot de Desempenho - {nome_arquivo}\n{n_vars} vars, {len(clausulas)} cláus.")
-            ax_box.set_ylabel("Total de Cláusulas Satisfeitas")
-            ax_box.set_xticks([1])
-            ax_box.set_xticklabels([nome_arquivo])
+                    # Gráfico de convergência da melhor execução desta configuração
+                    hist, hist_t, exec_num = melhor_historico
+                    fig, ax1 = plt.subplots(figsize=(8, 6))
+                    ax1.set_xlabel("Iteração")
+                    ax1.set_ylabel("Cláusulas Satisfeitas", color='blue')
+                    ax1.plot(hist, color='blue', linewidth=0.5)
+                    ax1.tick_params(axis='y', labelcolor='blue')
+                    ax2 = ax1.twinx()
+                    ax2.set_ylabel("Temperatura", color='red')
+                    ax2.plot(hist_t, color='red', linestyle='--', linewidth=1.5)
+                    ax2.tick_params(axis='y', labelcolor='red')
+                    plt.title(f"Convergência - {nome_arquivo} | {rotina} | SAmax={samax} | Exec {exec_num}")
+                    fig.tight_layout()
+                    plt.savefig(os.path.join(pasta, f"grafico_{nome_arquivo}_{nome_config}.png"))
+                    plt.close(fig)
 
-            nome_boxplot = os.path.join(pasta, f"boxplot_{nome_arquivo}.png")
-            plt.savefig(nome_boxplot)
-            plt.close(fig_box)
+            # Box-plot combinado com as 4 configurações — gerado UMA VEZ por instância
+            fig, ax = plt.subplots(figsize=(10, 6))
 
-    print(f"\nTodas as execuções concluídas!")
-    print(f"Resultados, médias e desvios salvos em '{arquivo_log}'.")
+            dados = list(resultados_por_config.values())
+            cores = ['#AED6F1', '#2E86C1', '#A9DFBF', '#1E8449']
+
+            bp = ax.boxplot(dados, tick_labels=labels_boxplot, patch_artist=True)
+            for patch, cor in zip(bp['boxes'], cores):
+                patch.set_facecolor(cor)
+
+            ax.set_ylabel("Cláusulas Satisfeitas")
+            ax.set_title(f"Box-plot Comparativo — {nome_arquivo} ({n_vars} vars, {len(clausulas)} cláusulas)")
+            ax.grid(axis='y', linestyle='--', alpha=0.5)
+            fig.tight_layout()
+
+            plt.savefig(os.path.join(pasta, f"boxplot_comparativo_{nome_arquivo}.png"))
+            plt.close(fig)
+            print(f"Box-plot comparativo salvo para {nome_arquivo}\n")
+
+    print("Todas as execuções concluídas!")
+    print(f"Resultados salvos em '{arquivo_log}'.")
     print(f"Os gráficos de convergência e os Box-Plots foram salvos nas respectivas pastas.")
